@@ -4,7 +4,8 @@
   "description": "Another Chip 8 Emulator",
   "main": "index.js",
   "scripts": {
-    "dev": " node build/server.js"
+    "dev": " node build/server.js",
+    "build" :  "webpack --config build/webpack.config.js"
   },
   "author": "Dave Campion",
   "license": "MIT",

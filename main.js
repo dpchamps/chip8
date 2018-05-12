@@ -1,19 +1,23 @@
 "use strict";
-import {EVENT_TYPE, Events} from './src/events/Events';
+import {EVENT_TYPE, EventBus} from './src/Events';
 import {FileLoader} from './src/FileLoader';
-import {Chip8} from './src/Chip8';
+import {Chip8} from './src/Chip8/Chip8';
 import {Gpu} from './src/Gpu';
 import {Spu} from './src/Spu';
 import {Input} from './src/Input';
+import {UI} from './src/UI';
 
-const TARGET_CLOCK_SPEED = 900;
+const TARGET_CLOCK_SPEED = 800;
 const gpu = new Gpu();
 const spu = new Spu();
 const input = new Input();
 const chip8 = new Chip8(gpu, input);
+const eventBus = new EventBus();
+const ui = new UI(eventBus);
 
 let game = new Uint8Array([0x0000, 0x00E0]);
-window.c8 = chip8;
+let animationFrame = null;
+
 const main = () => {
     chip8.initialize();
     chip8.loadGame(game);
@@ -41,19 +45,20 @@ const main = () => {
 
         if(chip8.isRunning){
             chip8.drawFlag = false;
-            requestAnimationFrame(runLoop);
+            animationFrame = requestAnimationFrame(runLoop);
         }
     };
 
-    requestAnimationFrame(runLoop);
+    animationFrame = requestAnimationFrame(runLoop);
 };
 
-window.addEventListener(EVENT_TYPE.MAIN_EXIT, () => {
-    console.log('main loop exit');
+eventBus.on(EVENT_TYPE.GAME_LOAD, (filename)=> {
+    FileLoader.load(filename)
+        .then(dataStream => {
+            cancelAnimationFrame(animationFrame);
+            game = dataStream;
+            main();
+        });
 });
 
-FileLoader.load('invaders.rom')
-    .then(dataStream => {
-        game = dataStream;
-        main();
-    });
+gpu.initialize();

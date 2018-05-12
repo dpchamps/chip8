@@ -71,6 +71,7 @@ export class Gpu{
     initialize(){
         this._screenNode = document.querySelector('#screen');
 
+        this.clearScreen();
         this._emptyScreenNode();
         this._createCanvas();
         this._attachCanvas();

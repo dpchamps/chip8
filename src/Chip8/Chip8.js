@@ -1,6 +1,6 @@
 "use strict";
 
-import {chip8FontSet} from './chip8FontSet/chip8FontSet';
+import {chip8FontSet} from './chip8FontSet';
 import {opcodes} from './opcodes';
 
 const MEM_LEN = 4096;

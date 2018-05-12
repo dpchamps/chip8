@@ -3,10 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Chip 8 EMU</title>
-    <link rel="stylesheet" type="text/css" href="src/main.css">
+    <link rel="stylesheet" type="text/css" href="src/UI/main.css">
 </head>
 <body>
-<main id="screen"></main>
+<main id="screen">
+    <button disabled>Reset</button>
+</main>
+    <footer>
+        <table>
+            <caption>Keyboard Controls:</caption>
+            <tr>
+                <th>1&emsp;2&emsp;3&emsp;4</th>
+            </tr>
+            <tr>
+                <th>Q&emsp;W&emsp;E&emsp;R</th>
+            </tr>
+            <tr>
+                <th>A&emsp;S&emsp;D&emsp;F</th>
+            </tr>
+            <tr>
+                <th>Z&emsp;X&emsp;C&emsp;V</th>
+            </tr>
+        </table>
+    </footer>
 </body>
-<script src="bundle.js"></script>
+<script src="dist/bundle.js"></script>
 </html>
