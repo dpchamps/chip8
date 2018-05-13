@@ -1,6 +1,6 @@
 "use strict";
 
-const romDirectory = '../roms';
+const romDirectory = 'https://demo.davecampion.com/Chip8/roms';
 
 export class FileLoader{
 
