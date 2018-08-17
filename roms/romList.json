@@ -13,6 +13,7 @@
   "missile",
   "pong",
   "pong2",
+  "pong3",
   "puzzle",
   "syzygy",
   "tank",
@@ -21,5 +22,6 @@
   "ufo",
   "vbrix",
   "vers",
-  "wipeoff"
+  "wipeoff",
+  "hello"
 ]

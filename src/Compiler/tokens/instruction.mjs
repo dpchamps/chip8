@@ -1,0 +1,23 @@
+export default {
+    CLS : 'CLS',
+    RET : 'RET',
+    SYS : 'SYS',
+    JP : 'JP',
+    CALL : 'CALL',
+    SE : 'SE',
+    SNE : 'SNE',
+    LD : 'LD',
+    ADD : 'ADD',
+    OR : 'OR',
+    AND : 'AND',
+    XOR : 'XOR',
+    SUB : 'SUB',
+    SHR : 'SHR',
+    SUBN : 'SUBN',
+    SHL : 'SHL',
+    RND : 'RND',
+    DRW : 'DRW',
+    SKP : 'SKP',
+    SKNP : 'SKNP',
+    NOOP: 'NOOP'
+}
